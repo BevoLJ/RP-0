@@ -2,9 +2,12 @@ language: c
 
 install:
     - sudo apt-get update
-    - sudo apt-get install zip libyaml-libyaml-perl
+    - sudo apt-get install zip libyaml-libyaml-perl libipc-system-simple-perl
 
 script: make release
+
+before_deploy:
+    - gem install mime-types -v 2.6.2
 
 deploy:
   provider: releases
